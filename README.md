@@ -8,22 +8,35 @@ How to run this project locally
 $ pip3 install -r requirements.txt
 ```
 
-Step 1: Migrate the models Create a migration for the models using the command:
-`python manage.py makemigrations`
+#Step 1: Migrate the models Create a migration for the models using the command:
+```sh
+>> python manage.py makemigrations
+
 Then run the migration to create the necessary tables in the database using the command:
-`python manage.py migrate`
 
-Step 2: Install and configure Celery and RabbitMQ Install Celery and RabbitMQ using the following commands:
-`pip install celery
-sudo apt-get install rabbitmq-server`
+>> python manage.py migrate
+```
+
+#Step 2: Install and configure Celery and RabbitMQ Install Celery and RabbitMQ using the following commands:
+```sh
+>> pip install celery
+>> sudo apt-get install rabbitmq-server
+
 Configure Celery to use RabbitMQ as the message broker by adding the following code to the settings.py file:
-`CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
-CELERY_RESULT_BACKEND = 'rpc://'`
 
-Step 3: Start the Django server, Celery worker, and RabbitMQ server Start the Django server using the command:
-`python manage.py runserver`
+>>CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+>>CELERY_RESULT_BACKEND = 'rpc://'`
+```
+
+#Step 3: Start the Django server, Celery worker, and RabbitMQ server Start the Django server using the command:
+```sh
+>> python manage.py runserver
+
 Start the Celery worker using the command:
-`celery -A loan_api_project worker -l info`
+>> celery -A loan_api_project worker -l info
+
 Start the RabbitMQ server using the command:
-`rabbitmq-server`
+>>rabbitmq-server
+```
+
 Now, we can test the project by using the API endpoints to register users, apply for loans, and make payments.
