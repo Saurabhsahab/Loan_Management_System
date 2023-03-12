@@ -6,6 +6,8 @@ How to run this project locally
 ## Clone this repo and install all dependencies
 ```sh
 $ pip3 install -r requirements.txt
+
+Note: if any confilct happen install them seperately
 ```
 
 #Step 1: Migrate the models Create a migration for the models using the command:
